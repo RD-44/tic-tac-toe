@@ -5,7 +5,7 @@ from typing import Iterable
 
 class ConsoleRenderer(Renderer):
     def render(self, game_state: GameState) -> None:
-        clear_screen()
+        # clear_screen()
         if game_state.winner:
             print_blinking(game_state.grid.cells, game_state.winning_cells)
             print(f'{game_state.winner.value} wins \N{party popper}')

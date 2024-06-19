@@ -1,4 +1,4 @@
-from tic_tac_toe.game.players import RandomComputerPlayer, Player
+from tic_tac_toe.game.players import RandomComputerPlayer, Player, MiniMaxPlayer
 from tic_tac_toe.logic.models import Mark
 from .players import ConsolePlayer
 from typing import NamedTuple
@@ -7,6 +7,7 @@ import argparse
 PLAYER_CLASSES = {
     "human": ConsolePlayer,
     "random": RandomComputerPlayer,
+    "bot" : MiniMaxPlayer,
 }
 
 class Args(NamedTuple):
@@ -26,7 +27,7 @@ def parse_args() -> tuple[Player, Player, Mark]:
         "-O",
         dest="player_o",
         choices=PLAYER_CLASSES.keys(),
-        default="random",
+        default="bot",
     )
     parser.add_argument(
         "--starting",
